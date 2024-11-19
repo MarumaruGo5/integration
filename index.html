@@ -1,45 +1,203 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MarumaruGo5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        .product {
-            margin: 20px;
-            border: 1px solid #ddd;
-            padding: 10px;
-            display: inline-block;
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            color: #333;
+            margin: 0;
+            padding: 0;
         }
-        .product img {
-            width: 100px; /* 可以根据需要调整图片大小 */
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            align-items: center; /* 垂直居中图片和文字 */
+            justify-content: start; /* 图片和文字靠左对齐 */
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .header img {
+            height: 60px; /* 控制图片高度 */
+            border-radius: 8px;
+            margin-right: 15px; /* 图片与文字间距 */
+        }
+        .header-title {
+            font-family: 'Pacifico', cursive; /* 使用可爱字体 */
+            font-size: 28px; /* 字体大小 */
+            color: #ff6f61; /* 可爱的颜色 */
+            margin: 0;
+        }
+
+        .product-list {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .product-item {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.6s ease, transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .product-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .product-item img {
+            width: 150px;
             height: auto;
-            display: block;
-            margin-bottom: 10px;
+            margin-right: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .product a {
+
+        .product-item img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-details {
+            flex: 1;
+        }
+
+        .product-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #333;
+            margin: 0 0 8px;
+        }
+
+        .product-title a {
             text-decoration: none;
-            color: black;
-            display: block;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .product-title a:hover {
+            color: #007bff;
+        }
+
+        .product-description {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            margin: 8px 0 12px;
+        }
+
+        .product-link {
+            color: #007bff;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            background-color: rgba(0, 123, 255, 0.1);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .product-link:hover {
+            color: #fff;
+            background-color: #007bff;
         }
     </style>
 </head>
 <body>
 
-<div class="product">
-    <a href="http://marumarugo5.github.io/ttshirt" target="_blank">
-        <img src="./tshirt1.JPG" alt="商品1">
-        T-shirt
-    </a>
+<!-- Header with brand logo and title -->
+<div class="header">
+    <img src="title.jpg" alt="Brand Logo">
+    <h1 class="header-title">凡凡五</h1>
 </div>
 
-<div class="product">
-    <a href="http://marumarugo5.github.io/stbag" target="_blank">
-        <img src="./bag1.JPG" alt="商品2">
-        bag
-    </a>
+<div class="product-list">
+
+    <!-- Product 1 -->
+    <div class="product-item">
+        <a href="https://example.com/product1"><img src="https://th.bing.com/th/id/OIP.zvTlRdcfDEl1NuoB94cZrAHaLH?rs=1&pid=ImgDetMain" alt="Product 1"></a>
+        <div class="product-details">
+            <h3 class="product-title"><a href="https://example.com/product1">Trimming T-Shirt</a></h3>
+            <p class="product-description">Original T-shirt with trimming photo enhancement. Available in two materials (organic cotton and breathable cotton).</p>
+            <a href="https://example.com/product1" class="product-link">Learn more</a>
+        </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-item">
+        <a href="https://example.com/product2"><img src="https://th.bing.com/th/id/OIP.zvTlRdcfDEl1NuoB94cZrAHaLH?rs=1&pid=ImgDetMain" alt="Product 2"></a>
+        <div class="product-details">
+            <h3 class="product-title"><a href="https://example.com/product2">Portrait T-Shirt</a></h3>
+            <p class="product-description">High-quality portrait T-shirt with a realistic likeness. Available in organic cotton and breathable cotton.</p>
+            <a href="https://example.com/product2" class="product-link">Learn more</a>
+        </div>
+    </div>
+
+<!-- Product 2 -->
+    <div class="product-item">
+        <a href="https://example.com/product2"><img src="https://th.bing.com/th/id/OIP.zvTlRdcfDEl1NuoB94cZrAHaLH?rs=1&pid=ImgDetMain" alt="Product 2"></a>
+        <div class="product-details">
+            <h3 class="product-title"><a href="https://example.com/product2">Portrait T-Shirt</a></h3>
+            <p class="product-description">High-quality portrait T-shirt with a realistic likeness. Available in organic cotton and breathable cotton.</p>
+            <a href="https://example.com/product2" class="product-link">Learn more</a>
+        </div>
+    </div>
+	<!-- Product 2 -->
+    <div class="product-item">
+        <a href="https://example.com/product2"><img src="https://th.bing.com/th/id/OIP.zvTlRdcfDEl1NuoB94cZrAHaLH?rs=1&pid=ImgDetMain" alt="Product 2"></a>
+        <div class="product-details">
+            <h3 class="product-title"><a href="https://example.com/product2">Portrait T-Shirt</a></h3>
+            <p class="product-description">High-quality portrait T-shirt with a realistic likeness. Available in organic cotton and breathable cotton.</p>
+            <a href="https://example.com/product2" class="product-link">Learn more</a>
+        </div>
+    </div>
+	<!-- Product 2 -->
+    <div class="product-item">
+        <a href="https://example.com/product2"><img src="https://th.bing.com/th/id/OIP.zvTlRdcfDEl1NuoB94cZrAHaLH?rs=1&pid=ImgDetMain" alt="Product 2"></a>
+        <div class="product-details">
+            <h3 class="product-title"><a href="https://example.com/product2">Portrait T-Shirt</a></h3>
+            <p class="product-description">High-quality portrait T-shirt with a realistic likeness. Available in organic cotton and breathable cotton.</p>
+            <a href="https://example.com/product2" class="product-link">Learn more</a>
+        </div>
+    </div>
 </div>
 
-<!-- 可以根据需要添加更多商品 -->
+<script>
+    // Scroll reveal animation using Intersection Observer
+    const productItems = document.querySelectorAll('.product-item');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Stop observing once it's visible
+            }
+        });
+    }, { threshold: 0.1 });
+
+    productItems.forEach(item => observer.observe(item));
+</script>
 
 </body>
 </html>
+
